@@ -1,0 +1,269 @@
+/* You can choose colors quickly from the color templates below*/
+
+:root {
+    --white: #fff;
+    --black: #00000099;
+    --medium-black: #00000033;
+    --shadow-black: #00000019;
+    --light-black: #333;
+    --light-blue: #97d2f1;
+    --bright-blue: #6cc1ed;
+    --sky-blue: #5699bc;
+    --dark-blue: #00a2d3;
+    --navy-blue: #729DBF;
+    --deep-dark-blue: #415F76CC;
+    --light-green: #67c58f;
+    --light-green-shadow: #0000000C;
+    --medium-green: #72BF7B;
+    --forest-green: #1f8a4c;
+    --hill-green: #1c2e2d;
+    --blue-green: #0eada0;
+    --green-blue: #00cfbe;
+    --indigo: #415f76;
+    --light-purple: #7772bf;
+    --purple: #484860;
+    --light-yellow: #B3BF72;
+    --light-orange: #BFA372;
+}
+
+*,
+*:after,
+*:before {
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
+.clear-fix:after,
+.clear-fix:before {
+    content: '';
+    display: table;
+}
+
+.clear-fix:after {
+    clear: both;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    background: var(--bright-blue);
+    font-weight: 400;
+    font-size: 1em;
+    font-family: 'Raleway', Calibri, Arial, sans-serif;
+    line-height: 1.25;
+    color: #f5f3ec;
+    position: relative;
+    z-index: 1;
+}
+
+a,
+button {
+    outline: none;
+}
+
+a {
+    text-decoration: none;
+    color: #0000007F;
+}
+
+a:focus, a:hover {
+    color: var(--white);
+}
+
+.main-container {
+    min-height: 100%;
+}
+
+/* Header */
+
+.notifications-header {
+    padding: 0 2em 0;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.notifications-header h1 {
+    margin: 0;
+    line-height: 1.3;
+    font-size: 3.5em;
+}
+
+.notifications-header h1 span {
+    display: block;
+    padding: 0.4em 0 0.6em 0.1em;
+    font-size: 46%;
+    font-weight: 300;
+    opacity: 0.7;
+}
+
+/* To Navigation Style */
+
+/* Demo Buttons Style */
+
+.notifications-demos {
+    font-size: 0.8em;
+    padding-top: 1em;
+}
+
+.notifications-demos div {
+    padding-bottom: 1em;
+    margin-left: 90px;
+}
+
+.notifications-demos a {
+    padding: 0.35em 0.9em 0.35em;
+    margin: 0.35em 0.1em;
+    display: inline-block;
+    outline: none;
+    color: var(--white);
+    background: rgba(255, 255, 255, 0.3);
+    font-weight: 700;
+    font-size: 110%;
+    letter-spacing: 1px;
+    text-decoration: none;
+    text-transform: uppercase;
+    border-radius: 2px;
+}
+
+.notifications-demos a.current-demo, .notifications-demos a:hover {
+    background: rgba(0, 0, 0, 0.2);
+    border-color: initial;
+    color: inherit;
+}
+
+.notifications-demos h3 {
+    padding: 1em 0 0.5em 0;
+    margin: 0;
+    min-width: 90px;
+    font-size: 0.9em;
+    clear: left;
+    float: left;
+}
+
+/* Main content */
+
+/* Main */
+
+.main-container {
+    padding: 3% 0 10%;
+    max-width: 69em;
+    margin: 0 auto;
+}
+
+/* Column */
+
+.column {
+    padding: 0 2.5em;
+    position: relative;
+    width: 50%;
+    min-height: 200px;
+    float: left;
+}
+
+/* First column formatting */
+
+.column:first-child {
+    text-align: right;
+    box-shadow: inset -1px 0 0 rgba(0, 0, 0, 0.1);
+}
+
+/* Paragraph in the column */
+
+.column p {
+    margin: 0;
+    font-size: 1.8em;
+    font-weight: 300;
+    line-height: 1.5;
+    padding: 0 0 0.5em;
+}
+
+/* Small text in the column */
+
+.column p.small {
+    padding: 0.75em 0 1em;
+    line-height: 1.2;
+    font-weight: 700;
+    font-size: 1em;
+}
+
+/* Notification progress bar */
+
+/* This mimics a process which produces a notification */
+
+.progress-button {
+    padding: 0 3em;
+    border: none;
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-size: 1em;
+    outline: none;
+    color: var(--white);
+    border-radius: 5px;
+    background: var(--medium-black);
+    line-height: 4;
+    z-index: 50;
+}
+
+/* Text inside the progress button */
+
+.progress-button .content {
+    z-index: 10;
+    display: block;
+    position: relative;
+    transition: transform 0.3s;
+    -webkit-transition: -webkit-transform 0.3s;
+}
+
+/* Progress button transition animation */
+
+.progress-button .progress {
+    top: 0;
+    height: 100%;
+    width: 0;
+    left: 0;
+    position: absolute;
+    opacity: 0;
+    background: var(--medium-black);
+    z-index: 0;
+    transition: width 0s 0.3s, opacity 0.3s;
+    -webkit-transition: width 0s 0.3s, opacity 0.3s;
+}
+
+/* Active button on progress styling */
+
+.progress-button.active .progress {
+    width: 100%;
+    opacity: 1;
+    transition: width 1.2s;
+    -webkit-transition: width 1.2s;
+}
+
+/* Allow the screen to be responsive */
+
+@media screen and (max-width: 25em) {
+    .notifications-header h1 {
+        font-size: 2.5em;
+    }
+}
+
+@media screen and (max-width: 46.5em) {
+    .column {
+        padding: 2em;
+        font-size: 90%;
+        min-width: auto;
+        width: 100%;
+        min-height: auto;
+    }
+
+    .column:first-child {
+        box-shadow: inset 0 -1px 0 var(--shadow-black);
+        text-align: center;
+    }
+}

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Notification Styles | Growl-Style</title>
+    <link rel="stylesheet" type="text/css" href="css/normalization.css" />
+    <link rel="stylesheet" type="text/css" href="css/default_notification.css" />
+    <script src="js/modernizr.custom.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/growl-notification-style.css" />
+    <link rel="stylesheet" type="text/css" href="css/demonstration.css" />
+
+</head>
+
+<body>
+    <div class="main-container">
+        <!-- Top Navigation -->
+
+        <header class="notifications-header">
+            <h1>Notification Styles
+                <span>Simple, easy and effective ideas &amp; animation effects for website notifications</span>
+            </h1>
+        </header>
+        <div class="main clear-fix">
+            <div class="column">
+                <p class="small">Click on the button to show the notification:</p>
+                <button id="notification-trigger" class="progress-button">
+                <span class="content">Show Notification</span>
+                <span class="progress"></span>
+            </button>
+            </div>
+            <div class="column">
+                <nav class="notifications-demos">
+                    <h3>Growl-like: </h3>
+                    <div>
+                        <a href="growl-effects-scale.html">Scale</a>
+                        <a class="current-demo" href="growl-effects-jelly.html">Jelly</a>
+                        <a href="growl-effects-slide-in.html">Slide in</a>
+                        <a href="growl-effects-genie.html">Genie</a>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </div>
+    <!-- /main-container -->
+    <script src="js/classEditor.js"></script>
+    <script src="js/notificationFunction.js"></script>
+    <script>
+        (function() {
+            let notificationButton = document.getElementById('notification-trigger');
+
+            // make sure the button is disabled
+            notificationButton.disabled = false;
+
+            notificationButton.addEventListener('click', function() {
+                // simulate loading (for demo purposes only)
+                classEditor.add(notificationButton, 'active');
+                setTimeout(function() {
+
+                    classEditor.remove(notificationButton, 'active');
+
+                    // create the notification
+                    let notification = new NotificationFunction({
+
+                        // Added an apostrophe (') escape character in the notificationMessage to avoid errors
+                        notificationMessage: '<p>Hello there!!! I\'m a classic notification pop-up, but I have some Jelly elasticity thanks to <a href="http://bouncejs.com/">bounce.js</a>. </p>',
+                        notificationLayout: 'growl',
+                        notificationEffect: 'jelly',
+                        notificationType: 'notice', // notice, warning, error or success
+                        totalTimeToLeave: 6000,
+                        onClose: function() {
+                            notificationButton.disabled = false;
+                        }
+                    });
+
+                    // show the notification
+                    notification.show();
+
+                }, 1200);
+
+                // disable the button (for demo purposes only)
+                this.disabled = true;
+            });
+        })();
+    </script>
+</body>
+
+</html>
